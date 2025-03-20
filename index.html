@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Éditeur de Code en Ligne</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #007bff;
+            color: white;
+            padding: 15px;
+            width: 100%;
+            text-align: center;
+        }
+        textarea {
+            width: 90%;
+            height: 70vh;
+            margin-top: 20px;
+            font-size: 16px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: white;
+        }
+        button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        iframe {
+            width: 90%;
+            height: 50vh;
+            margin-top: 10px;
+            border: 1px solid #ccc;
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Éditeur de Code en Ligne</h1>
+    </header>
+    <textarea id="code" placeholder="Écris ton jeu ici..."></textarea>
+    <button onclick="demarrerJeu()">Commencer le Jeu</button>
+    <iframe id="output"></iframe>
+
+    <script>
+        function demarrerJeu() {
+            let code = document.getElementById("code").value;
+            let iframe = document.getElementById("output");
+            iframe.contentDocument.open();
+            iframe.contentDocument.write(code);
+            iframe.contentDocument.close();
+        }
+    </script>
+</body>
+</html>
